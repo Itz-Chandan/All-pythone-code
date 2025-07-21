@@ -1,0 +1,44 @@
+#!/bin/bash
+
+
+tool="python3"
+
+
+# Check if Python3 is installed
+if command -v "$tool" > /dev/null; then
+echo "$tool is already installed."
+
+else
+
+echo "$tool is not installed. installing $tool..."
+
+if [[ "$(uname)" == "Drawin" ]]; then
+
+brew install "$tool"
+
+elif [[ "$(uname)" == "Linux" ]]; then
+
+sudo apt update
+
+sudo apt install -y  "$tool"
+
+else
+
+echo "unsupported os. cannot install $tool.."
+
+fi
+# Verify if installation was successful
+
+if command -v "$tool" > /de/null; then
+
+echo "$tool has been installed successfully."
+
+else
+
+echo "Failed to install $tool. please check your system or package manager."
+
+fi
+
+fi
+
+echo "installation check complete
